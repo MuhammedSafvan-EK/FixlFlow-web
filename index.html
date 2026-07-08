@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FixFlow | Professional Home Services</title>
+    <meta name="description" content="FixFlow provides premium plumbing, ceiling, and electrical works for your home and business.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar hidden">
+        <a href="#home" class="logo">
+            FixFlow
+        </a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact" class="btn btn-primary">Connect</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="hero hidden">
+        <div class="hero-content">
+            <h1>Elevate Your Space with <span class="gradient-text">FixFlow</span></h1>
+            <p>Premium plumbing, modern ceiling installations, and safe electrical works delivered with precision and excellence.</p>
+            <div class="hero-actions">
+                <button class="btn btn-outline" onclick="window.location.href='#services'">Our Services</button>
+                <button class="btn btn-primary" onclick="window.location.href='#contact'">Get a Quote</button>
+            </div>
+        </div>
+        <div class="hero-graphic">
+            <div class="glow-orb orb-1"></div>
+            <div class="glow-orb orb-2"></div>
+            <img src="public/hero_illustration.png" alt="Fix-Flow Tools" class="hero-image" />
+            <div class="glass-card main-card">
+                <h3>Reliable Experts</h3>
+                <p>24/7 Support for all your essential needs.</p>
+            </div>
+            <div class="floating-badge badge-1">
+                <span class="badge-icon">⚡</span> Fast Service
+            </div>
+            <div class="floating-badge badge-2">
+                <span class="badge-icon">🛠️</span> Expert Tools
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </header>
+
+    <section id="services" class="services-section">
+        <div class="section-header hidden">
+            <h2>Our Expertise</h2>
+            <p>Comprehensive solutions tailored to your requirements</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card hidden delay-1">
+                <div class="card-icon plumbing-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
+                </div>
+                <h3>Plumbing</h3>
+                <p>From rapid leak repairs to complete pipe installations, ensuring your water systems flow flawlessly.</p>
+                <a href="#contact" class="btn btn-outline" style="margin-top: 1.5rem; width: 100%; text-align: center; display: block;" onclick="document.getElementById('serviceType').value='plumbing';">Get a Quote</a>
+            </div>
+            <div class="service-card hidden delay-2">
+                <div class="card-icon ceiling-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                </div>
+                <h3>Ceiling Works</h3>
+                <p>Modern false ceilings, aesthetic plastering, and structural repairs that redefine your interiors.</p>
+                <a href="#contact" class="btn btn-outline" style="margin-top: 1.5rem; width: 100%; text-align: center; display: block;" onclick="document.getElementById('serviceType').value='ceiling';">Get a Quote</a>
+            </div>
+            <div class="service-card hidden delay-3">
+                <div class="card-icon electrical-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </div>
+                <h3>Electrical Works</h3>
+                <p>Safe wiring, smart lighting installations, and power issue resolutions by certified electricians.</p>
+                <a href="#contact" class="btn btn-outline" style="margin-top: 1.5rem; width: 100%; text-align: center; display: block;" onclick="document.getElementById('serviceType').value='electrical';">Get a Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section hidden">
+        <div class="about-content">
+            <h2>Why Choose FixFlow?</h2>
+            <p>We are a Saudi-based service company dedicated to transforming and maintaining your spaces with unmatched professionalism. Our team of experts ensures quality, safety, and modern aesthetics in every project.</p>
+            <ul class="features-list">
+                <li><span class="check-icon">✓</span> Experienced Professionals</li>
+                <li><span class="check-icon">✓</span> Timely Project Completion</li>
+                <li><span class="check-icon">✓</span> Transparent Pricing</li>
+                <li><span class="check-icon">✓</span> Guaranteed Satisfaction</li>
+            </ul>
+        </div>
+        <div class="about-image">
+            <img src="public/about_illustration.png" alt="FixFlow Professionals" class="about-img-actual" />
+            <div class="glass-panel">
+                <div class="stat">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Satisfaction Rate</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section hidden">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Connect With Us</h2>
+                <p>Ready to start your next project or need emergency repairs? Reach out today.</p>
+                <div class="info-item">
+                    <strong>Email:</strong> fixflowofficial.saudi@gmail.com
+                </div>
+                <div class="info-item">
+                    <strong>Phone:</strong> +966 53 125 0719
+                </div>
+            </div>
+            <form class="contact-form" id="connectForm">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phone" placeholder="Your Phone Number" required>
+                </div>
+                <div class="form-group">
+                    <select id="serviceType" required>
+                        <option value="" disabled selected>Select Service</option>
+                        <option value="plumbing">Plumbing</option>
+                        <option value="ceiling">Ceiling Works</option>
+                        <option value="electrical">Electrical Works</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" rows="4" placeholder="How can we help? If you need any more services, please contact us to gather more details." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
+                <p class="form-status" id="formStatus"></p>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <a href="#home" class="logo">
+                FixFlow
+            </a>
+            <p>&copy; 2026 FixFlow. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
