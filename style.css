@@ -618,10 +618,25 @@ footer {
     .hero {
         padding-top: 120px;
         text-align: center;
+        min-height: auto;
+        padding-bottom: 3rem;
     }
 
     .hero-actions {
         justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .hero-graphic {
+        height: auto;
+        flex-direction: column;
+        padding-bottom: 2rem;
     }
 
     .floating-badge {
@@ -629,9 +644,14 @@ footer {
     }
 
     .glass-card.main-card {
-        right: 0;
-        bottom: -5%;
+        position: relative;
+        right: auto;
+        bottom: auto;
+        margin-top: -2rem;
         padding: 1.25rem;
+        width: 90%;
+        max-width: 350px;
+        z-index: 5;
     }
 
     h1 {
@@ -648,5 +668,21 @@ footer {
 
     .contact-container {
         padding: 1.5rem;
+    }
+    
+    .glass-panel {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+    }
+    
+    .scroll-indicator {
+        display: none;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
     }
 }
