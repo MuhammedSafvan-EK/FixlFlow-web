@@ -36,17 +36,66 @@ document.addEventListener('DOMContentLoaded', () => {
         connectForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
             const serviceType = document.getElementById('serviceType').value;
-            const message = document.getElementById('message').value;
+            const message = document.getElementById('message').value.trim();
             
-            const text = `Hello FixFlow!%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Service Required:* ${serviceType}%0A*Message:* ${message}`;
+            // Clear any previous status
+            formStatus.style.color = '#ef4444'; // Red for errors
+            formStatus.textContent = '';
+
+            // 1. Anti-Phishing / URL blocking (Prevent Links)
+            // This prevents attackers from sending spam links via your form
+            const urlPattern = /(https?:\/\/|[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(\/|$))/i;
+            if (urlPattern.test(message) || urlPattern.test(name)) {
+                formStatus.textContent = 'Security Alert: Links and URLs are not allowed in the message for security reasons.';
+                return;
+            }
+
+            // 2. Prevent incredibly long inputs (Buffer/Spam flood protection)
+            if (message.length > 500) {
+                formStatus.textContent = 'Message is too long. Please keep it under 500 characters.';
+                return;
+            }
+            if (name.length > 100) {
+                formStatus.textContent = 'Name is too long.';
+                return;
+            }
+
+            // 3. Strict Phone Validation (Only allow numbers, spaces, plus, hyphens)
+            const phonePattern = /^[+\d\s-]{7,20}$/;
+            if (!phonePattern.test(phone)) {
+                formStatus.textContent = 'Please enter a valid phone number (digits, +, - only).';
+                return;
+            }
+
+            // 4. Basic XSS / Malicious Character Detection
+            const xssPattern = /[<>]/;
+            if (xssPattern.test(name) || xssPattern.test(message)) {
+                formStatus.textContent = 'Security Alert: Invalid characters (<, >) are not allowed.';
+                return;
+            }
+            
+            formStatus.style.color = '#10b981'; // Green for success
+            formStatus.textContent = 'Message validated. Redirecting to WhatsApp...';
+
+            // 5. URL Encoding (Sanitize parameters so attackers cannot break the WhatsApp URL structure)
+            const safeName = encodeURIComponent(name);
+            const safeEmail = encodeURIComponent(email);
+            const safePhone = encodeURIComponent(phone);
+            const safeServiceType = encodeURIComponent(serviceType);
+            const safeMessage = encodeURIComponent(message);
+            
+            const text = `Hello FixFlow!%0A%0A*Name:* ${safeName}%0A*Email:* ${safeEmail}%0A*Phone:* ${safePhone}%0A*Service Required:* ${safeServiceType}%0A*Message:* ${safeMessage}`;
             const whatsappUrl = `https://wa.me/966531250719?text=${text}`;
             
-            window.open(whatsappUrl, '_blank');
-            connectForm.reset();
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+                connectForm.reset();
+                formStatus.textContent = '';
+            }, 800);
         });
     }
 });
